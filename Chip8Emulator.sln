@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Chip8Emulator", "Chip8Emulator\Chip8Emulator.vcxproj", "{6AA3A695-D663-22CC-9F9E-6B490B1E67A8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImGui", "Chip8Emulator\Vendor\imgui\ImGui.vcxproj", "{C0FF640D-2C14-8DBE-F595-301E616989EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win64 = Debug|Win64
+		Dist|Win64 = Dist|Win64
+		Release|Win64 = Release|Win64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6AA3A695-D663-22CC-9F9E-6B490B1E67A8}.Debug|Win64.ActiveCfg = Debug Win64|x64
+		{6AA3A695-D663-22CC-9F9E-6B490B1E67A8}.Debug|Win64.Build.0 = Debug Win64|x64
+		{6AA3A695-D663-22CC-9F9E-6B490B1E67A8}.Dist|Win64.ActiveCfg = Dist Win64|x64
+		{6AA3A695-D663-22CC-9F9E-6B490B1E67A8}.Dist|Win64.Build.0 = Dist Win64|x64
+		{6AA3A695-D663-22CC-9F9E-6B490B1E67A8}.Release|Win64.ActiveCfg = Release Win64|x64
+		{6AA3A695-D663-22CC-9F9E-6B490B1E67A8}.Release|Win64.Build.0 = Release Win64|x64
+		{C0FF640D-2C14-8DBE-F595-301E616989EF}.Debug|Win64.ActiveCfg = Debug Win64|x64
+		{C0FF640D-2C14-8DBE-F595-301E616989EF}.Debug|Win64.Build.0 = Debug Win64|x64
+		{C0FF640D-2C14-8DBE-F595-301E616989EF}.Dist|Win64.ActiveCfg = Dist Win64|x64
+		{C0FF640D-2C14-8DBE-F595-301E616989EF}.Dist|Win64.Build.0 = Dist Win64|x64
+		{C0FF640D-2C14-8DBE-F595-301E616989EF}.Release|Win64.ActiveCfg = Release Win64|x64
+		{C0FF640D-2C14-8DBE-F595-301E616989EF}.Release|Win64.Build.0 = Release Win64|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

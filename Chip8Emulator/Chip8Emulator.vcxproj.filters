@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Include">
+      <UniqueIdentifier>{6917EFFE-D5F6-6D9A-DE0E-F9704A6DD4FB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{56EB95D1-428D-C0A7-2B48-D4FB178947F8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vendor">
+      <UniqueIdentifier>{935FDCD7-7F01-07AE-68BC-1A0254FD8DFE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vendor\PPK_ASSERT">
+      <UniqueIdentifier>{5E6FC9AD-CA85-C743-13FD-52657F5298CB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vendor\PPK_ASSERT\Source">
+      <UniqueIdentifier>{9EC7CA68-8AEC-19E9-B337-FF789FBB1807}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Include\Chip8Emulator.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Core\Chip8EmulatorCore.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Core\Chip8EmulatorLog.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\c8pch.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\imgui\imgui_impl_sdl3.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\imgui\imgui_impl_sdlrenderer3.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Chip8Emulator.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\Chip8EmulatorLog.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\c8pch.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\imgui\imgui_impl_sdl3.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\imgui\imgui_impl_sdlrenderer3.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Vendor\PPK_ASSERT\Source\ppk_assert.cpp">
+      <Filter>Vendor\PPK_ASSERT\Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

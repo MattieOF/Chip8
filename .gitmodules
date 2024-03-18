@@ -1,0 +1,7 @@
+[submodule "Chip8Emulator/Vendor/spdlog"]
+	path = Chip8Emulator/Vendor/spdlog
+	url = https://github.com/gabime/spdlog.git
+[submodule "Chip8Emulator/Vendor/imgui"]
+	path = Chip8Emulator/Vendor/imgui
+	url = https://github.com/ocornut/imgui.git
+	branch = docking
