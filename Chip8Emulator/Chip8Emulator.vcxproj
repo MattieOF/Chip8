@@ -148,6 +148,7 @@
     <ClInclude Include="Include\Core\Chip8EmulatorCore.h" />
     <ClInclude Include="Include\Core\Chip8EmulatorLog.h" />
     <ClInclude Include="Include\c8pch.h" />
+    <ClInclude Include="Include\Core\Emulator.h" />
     <ClInclude Include="Include\Core\Shell.h" />
     <ClInclude Include="Include\imgui\imgui_impl_sdl3.h" />
     <ClInclude Include="Include\imgui\imgui_impl_sdlrenderer3.h" />
@@ -158,6 +159,7 @@
     <ClCompile Include="Source\c8pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Source\Core\Emulator.cpp" />
     <ClCompile Include="Source\Core\Shell.cpp" />
     <ClCompile Include="Source\imgui\imgui_impl_sdl3.cpp" />
     <ClCompile Include="Source\imgui\imgui_impl_sdlrenderer3.cpp" />

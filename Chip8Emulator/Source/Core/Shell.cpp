@@ -3,6 +3,8 @@
 
 #include <SDL3/SDL.h>
 #include <imgui.h>
+
+#include "Core/Emulator.h"
 #include "imgui/imgui_impl_sdl3.h"
 #include "imgui/imgui_impl_sdlrenderer3.h"
 
@@ -54,6 +56,9 @@ bool Shell::Init()
 	if (!ImGui_ImplSDLRenderer3_Init(m_Renderer))
 		return false;
 
+	// Create emulator
+	m_Emulator = new Emulator();
+
 	m_Initialised = true;
 
 	return true;
@@ -104,7 +109,28 @@ void Shell::Run()
 			ImGui::NewFrame();
 
 			// Draw UI
-			ImGui::ShowDemoWindow();
+			ImGui::Begin("Emulator Playground");
+			ImGui::Text("Comp mode: ");
+			ImGui::SameLine();
+			if (ImGui::Button("Chip-8"))
+				m_Emulator->SetCompatibilityMode(CompatibilityMode::Chip8);
+			ImGui::SameLine();
+			if (ImGui::Button("Chip-8E"))
+				m_Emulator->SetCompatibilityMode(CompatibilityMode::Chip8E);
+			ImGui::SameLine();
+			if (ImGui::Button("Chip-16"))
+				m_Emulator->SetCompatibilityMode(CompatibilityMode::Chip16);
+			ImGui::SameLine();
+			if (ImGui::Button("Chip-48"))
+				m_Emulator->SetCompatibilityMode(CompatibilityMode::Chip48);
+			ImGui::SameLine();
+			if (ImGui::Button("SuperChip"))
+				m_Emulator->SetCompatibilityMode(CompatibilityMode::SuperChip);
+			ImGui::SameLine();
+			if (ImGui::Button("XO-Chip"))
+				m_Emulator->SetCompatibilityMode(CompatibilityMode::XOChip);
+			ImGui::Checkbox("Debug Logs", &m_Emulator->m_DebugLogs);
+			ImGui::End();
 
 			// Draw imgui
 			ImGui::Render();
@@ -125,6 +151,8 @@ void Shell::Shutdown()
 {
 	if (!m_Initialised)
 		return;
+
+	delete m_Emulator;
 
 	ImGui_ImplSDLRenderer3_Shutdown();
 	ImGui_ImplSDL3_Shutdown();

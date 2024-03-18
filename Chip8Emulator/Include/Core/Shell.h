@@ -1,5 +1,7 @@
 #pragma once
 
+// Forward declaration of Emulator
+class Emulator;
 // Forward declaration of SDL types
 struct SDL_Window;
 struct SDL_Renderer;
@@ -20,4 +22,6 @@ protected:
 
 	SDL_Window* m_Window;
 	SDL_Renderer* m_Renderer;
+
+	Emulator* m_Emulator = nullptr;
 };

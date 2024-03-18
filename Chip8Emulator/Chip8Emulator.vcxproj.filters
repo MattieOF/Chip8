@@ -37,6 +37,7 @@
       <Filter>Include</Filter>
     </ClInclude>
     <ClInclude Include="Include\Core\Shell.h" />
+    <ClInclude Include="Include\Core\Emulator.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Chip8Emulator.cpp">
@@ -58,5 +59,6 @@
       <Filter>Vendor\PPK_ASSERT\Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\Core\Shell.cpp" />
+    <ClCompile Include="Source\Core\Emulator.cpp" />
   </ItemGroup>
 </Project>
