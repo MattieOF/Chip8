@@ -424,3 +424,4 @@ FodyWeavers.xsd
 
 !Scripts/Bin
 Build
+Chip8Emulator/imgui.ini

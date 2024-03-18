@@ -36,6 +36,7 @@
     <ClInclude Include="Include\imgui\imgui_impl_sdlrenderer3.h">
       <Filter>Include</Filter>
     </ClInclude>
+    <ClInclude Include="Include\Core\Shell.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Chip8Emulator.cpp">
@@ -56,5 +57,6 @@
     <ClCompile Include="Vendor\PPK_ASSERT\Source\ppk_assert.cpp">
       <Filter>Vendor\PPK_ASSERT\Source</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Core\Shell.cpp" />
   </ItemGroup>
 </Project>
