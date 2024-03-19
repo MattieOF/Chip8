@@ -59,7 +59,8 @@ void Emulator::Initialise()
 	case CompatibilityMode::Chip16:
 	case CompatibilityMode::Chip48:
 	case CompatibilityMode::SuperChip:
-	case CompatibilityMode::XOChip:
+	case CompatibilityMode::XOChip10:
+	case CompatibilityMode::XOChip11:
 		C8_ERROR("Unimplemented compatibility mode: {0}", static_cast<int>(m_CompatibilityMode));
 		break;
 	default:
@@ -77,12 +78,23 @@ void Emulator::CreateBuffers()
 	{
 	case CompatibilityMode::Chip8:
 	case CompatibilityMode::Chip8E:
+	case CompatibilityMode::Chip48:
 		memorySize = 4096;
+		m_DisplayWidth = 64;
+		m_DisplayHeight = 32;
 		break;
 	case CompatibilityMode::Chip16:
-	case CompatibilityMode::Chip48:
+		memorySize = 65536;
+		m_DisplayWidth = 320;
+		m_DisplayHeight = 240;
+		break;
 	case CompatibilityMode::SuperChip:
-	case CompatibilityMode::XOChip:
+		memorySize = 65536;
+		m_DisplayWidth = 128;
+		m_DisplayHeight = 64;
+		break;
+	case CompatibilityMode::XOChip10:
+	case CompatibilityMode::XOChip11:
 		memorySize = 65536;
 		break;
 	default:
@@ -111,6 +123,16 @@ void Emulator::CreateBuffers()
 	m_CurrentMemorySize = memorySize;
 	if (m_DebugLogs)
 		C8_INFO("Memory buffer created with size: {0} bytes", m_CurrentMemorySize);
+
+	uint8_t* newDisplay = new uint8_t[m_DisplayWidth * m_DisplayHeight];
+	if (m_Display)
+	{
+		// TODO: Should we copy the display buffer as well?
+		delete[] m_Display;
+	}
+	m_Display = newDisplay;
+	if (m_DebugLogs)
+		C8_INFO("Display buffer created with size {0}x{1}, totalling {2} bytes", m_DisplayWidth, m_DisplayHeight, m_DisplayWidth * m_DisplayHeight);
 }
 
 void Emulator::ResetEmulatorState()
@@ -123,6 +145,7 @@ void Emulator::ResetEmulatorState()
 		return;
 	}
 	ZeroMem();
+	ZeroDisplay();
 	m_ProgramCounter = 0x200;
 	m_IRegister = 0;
 	while (!m_Stack.empty()) // Clear the stack
@@ -142,6 +165,13 @@ void Emulator::ZeroMem()
 		return;
 	}
 	memset(m_Memory, 0, m_CurrentMemorySize);
+}
+
+void Emulator::ZeroDisplay()
+{
+	C8_INFO("Zeroing display");
+	C8_ASSERT(m_Display != nullptr, "Display buffer is null in ZeroDisplay");
+	memset(m_Display, 0, m_DisplayWidth * m_DisplayHeight);
 }
 
 void Emulator::AddFontToMemory()

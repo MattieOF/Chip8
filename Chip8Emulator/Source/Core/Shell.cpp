@@ -125,6 +125,7 @@ void Shell::Run()
 
 			// Draw UI
 			ImGui::Begin("Emulator Playground");
+			// TODO: Make this a combo box
 			ImGui::Text("Comp mode: ");
 			ImGui::SameLine();
 			if (ImGui::Button("Chip-8"))
@@ -142,8 +143,11 @@ void Shell::Run()
 			if (ImGui::Button("SuperChip"))
 				m_Emulator->SetCompatibilityMode(CompatibilityMode::SuperChip);
 			ImGui::SameLine();
-			if (ImGui::Button("XO-Chip"))
-				m_Emulator->SetCompatibilityMode(CompatibilityMode::XOChip);
+			if (ImGui::Button("XO-Chip 1.0"))
+				m_Emulator->SetCompatibilityMode(CompatibilityMode::XOChip10);
+			ImGui::SameLine();
+			if (ImGui::Button("XO-Chip 1.1"))
+				m_Emulator->SetCompatibilityMode(CompatibilityMode::XOChip11);
 			ImGui::Checkbox("Debug Logs", &m_Emulator->m_DebugLogs);
 			ImGui::End();
 

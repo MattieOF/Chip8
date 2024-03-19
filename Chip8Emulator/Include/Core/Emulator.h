@@ -7,7 +7,8 @@ enum class CompatibilityMode
 	Chip16,
 	Chip48,
 	SuperChip,
-	XOChip
+	XOChip10,
+	XOChip11
 };
 
 class Emulator
@@ -29,6 +30,7 @@ protected:
 	void CreateBuffers();
 	void ResetEmulatorState();
 	void ZeroMem();
+	void ZeroDisplay();
 	void AddFontToMemory();
 
 	// --------------
@@ -42,6 +44,8 @@ protected:
 	uint8_t m_DelayTimer = 0;
 	uint8_t m_SoundTimer = 0;
 	uint8_t m_VRegisters[16] = { 0 };
+	uint8_t* m_Display = nullptr;
+	uint16_t m_DisplayWidth = 64, m_DisplayHeight = 32;
 
 #ifdef C8_DEBUG
 	bool m_DebugLogs = true;
