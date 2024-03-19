@@ -57,8 +57,8 @@ bool Shell::Init()
 	// Save the imgui settings to the preferences path, so we don't clutter wherever the user runs the emulator from.
 	// For applications that ship as multiple files, saving directly to the executable directory is probably preferred (see unreal games),
 	// but since I want to keep the emulator as a single file, I'll avoid writing outside the preferences' path.
-	if (prefPath != nullptr)
-	{
+	if (prefPath != nullptr) // If it doesn't exist, we'll just use the default imgui.ini location. 
+	{                        // TODO: what's the bigger sin; not saving the settings, or cluttering the user's directory?
 		// Save it to a member variable, so that the cstr we pass to imgui is valid for the lifetime of the shell.
 		m_ImguiIniPath = fmt::format("{0}imgui.ini", prefPath);
 		io.IniFilename = m_ImguiIniPath.c_str();

@@ -27,10 +27,21 @@ public:
 protected:
 	void Initialise();
 	void CreateBuffers();
+	void ResetEmulatorState();
 	void ZeroMem();
+	void AddFontToMemory();
 
+	// --------------
+	// Emulator state
+	// --------------
 	uint8_t* m_Memory = nullptr;
 	uint32_t m_CurrentMemorySize = 0;
+	uint16_t m_ProgramCounter = 0x200;
+	uint16_t m_IRegister = 0;
+	std::stack<uint16_t> m_Stack;
+	uint8_t m_DelayTimer = 0;
+	uint8_t m_SoundTimer = 0;
+	uint8_t m_VRegisters[16] = { 0 };
 
 #ifdef C8_DEBUG
 	bool m_DebugLogs = true;
