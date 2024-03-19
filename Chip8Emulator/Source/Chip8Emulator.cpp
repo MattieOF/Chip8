@@ -5,9 +5,6 @@
 
 int SDL_main(int argc, char* argv[])
 {
-	InitLog();
-	C8_TRACE("Hello! Welcome to Chip-8 :)");
-
 	Shell* shell = new Shell();
 	shell->Run();
 	delete shell;

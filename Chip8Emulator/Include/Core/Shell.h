@@ -24,4 +24,6 @@ protected:
 	SDL_Renderer* m_Renderer;
 
 	Emulator* m_Emulator = nullptr;
+
+	std::string m_ImguiIniPath;
 };

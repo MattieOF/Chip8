@@ -19,9 +19,14 @@ bool Shell::Init()
 	// Initialize SDL.
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_GAMEPAD))
 	{
-		C8_ERROR("SDL failed to initialize: {0}", SDL_GetError());
+		SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Failed to initialise SDL", fmt::format("Failed to init SDL: {0}", SDL_GetError()).c_str(), nullptr);
 		return false;
 	}
+
+	// Now that SDL is initialised, we can create the log file with the preferences path.
+	const char* prefPath = SDL_GetPrefPath("Matt Ware", "Chip8");
+	InitLog(prefPath);
+	C8_TRACE("Hello! Welcome to Chip-8 :)");
 
 	// Enable native IME.
 	SDL_SetHint(SDL_HINT_IME_SHOW_UI, "1");
@@ -48,6 +53,16 @@ bool Shell::Init()
 	ImGuiIO& io = ImGui::GetIO(); (void)io;
 	io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
 	io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+
+	// Save the imgui settings to the preferences path, so we don't clutter wherever the user runs the emulator from.
+	// For applications that ship as multiple files, saving directly to the executable directory is probably preferred (see unreal games),
+	// but since I want to keep the emulator as a single file, I'll avoid writing outside the preferences' path.
+	if (prefPath != nullptr)
+	{
+		// Save it to a member variable, so that the cstr we pass to imgui is valid for the lifetime of the shell.
+		m_ImguiIniPath = fmt::format("{0}imgui.ini", prefPath);
+		io.IniFilename = m_ImguiIniPath.c_str();
+	}
 	ImGui::StyleColorsDark();
 
 	// Setup imgui backends

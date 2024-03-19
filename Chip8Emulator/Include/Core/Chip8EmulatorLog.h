@@ -6,7 +6,7 @@
 
 extern std::shared_ptr<spdlog::logger> s_Chip8EmulatorLogger;
 
-void InitLog();
+void InitLog(const char* prefPath);
 
 #ifndef C8_NO_LOG
 	#define C8_TRACE(...)       s_Chip8EmulatorLogger->trace(__VA_ARGS__)
