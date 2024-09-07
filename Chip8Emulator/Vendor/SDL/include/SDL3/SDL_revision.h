@@ -31,9 +31,9 @@
 #define SDL_VENDOR_INFO "Github Workflow"
 
 #ifdef SDL_VENDOR_INFO
-#define SDL_REVISION "SDL-3.0.0-no-vcs (" SDL_VENDOR_INFO ")"
+#define SDL_REVISION "SDL-4c8357a (" SDL_VENDOR_INFO ")"
 #else
-#define SDL_REVISION "SDL-3.0.0-no-vcs"
+#define SDL_REVISION "SDL-4c8357a"
 #endif
 
 #endif /* SDL_revision_h_ */

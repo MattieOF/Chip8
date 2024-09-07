@@ -20,8 +20,6 @@
 */
 
 /**
- *  \file SDL_test_crc32.h
- *
  *  CRC32 functions of SDL test framework.
  *
  *  This code is a part of the SDL test library, not the main SDL library.
@@ -42,7 +40,6 @@
 extern "C" {
 #endif
 
-
 /* ------------ Definitions --------- */
 
 /* Definition shared by all CRC routines */
@@ -60,7 +57,7 @@ extern "C" {
  #define CRC32_POLY 0xEDB88320   /* Perl String::CRC32 compatible */
 #endif
 
-/**
+/*
  * Data structure for CRC32 (checksum) computation
  */
   typedef struct SDLTest_Crc32Context {
@@ -69,7 +66,7 @@ extern "C" {
 
 /* ---------- Function Prototypes ------------- */
 
-/**
+/*
  * Initialize the CRC context
  *
  * Note: The function initializes the crc table required for all crc calculations.
@@ -79,10 +76,9 @@ extern "C" {
  * \returns 0 for OK, -1 on error
  *
  */
- int SDLTest_Crc32Init(SDLTest_Crc32Context *crcContext);
+int SDLCALL SDLTest_Crc32Init(SDLTest_Crc32Context *crcContext);
 
-
-/**
+/*
  * calculate a crc32 from a data block
  *
  * \param crcContext         pointer to context variable
@@ -93,15 +89,14 @@ extern "C" {
  * \returns 0 for OK, -1 on error
  *
  */
-int SDLTest_Crc32Calc(SDLTest_Crc32Context *crcContext, CrcUint8 *inBuf, CrcUint32 inLen, CrcUint32 *crc32);
+int SDLCALL SDLTest_Crc32Calc(SDLTest_Crc32Context *crcContext, CrcUint8 *inBuf, CrcUint32 inLen, CrcUint32 *crc32);
 
 /* Same routine broken down into three steps */
-int SDLTest_Crc32CalcStart(SDLTest_Crc32Context *crcContext, CrcUint32 *crc32);
-int SDLTest_Crc32CalcEnd(SDLTest_Crc32Context *crcContext, CrcUint32 *crc32);
-int SDLTest_Crc32CalcBuffer(SDLTest_Crc32Context *crcContext, CrcUint8 *inBuf, CrcUint32 inLen, CrcUint32 *crc32);
+int SDLCALL SDLTest_Crc32CalcStart(SDLTest_Crc32Context *crcContext, CrcUint32 *crc32);
+int SDLCALL SDLTest_Crc32CalcEnd(SDLTest_Crc32Context *crcContext, CrcUint32 *crc32);
+int SDLCALL SDLTest_Crc32CalcBuffer(SDLTest_Crc32Context *crcContext, CrcUint8 *inBuf, CrcUint32 inLen, CrcUint32 *crc32);
 
-
-/**
+/*
  * clean up CRC context
  *
  * \param crcContext        pointer to context variable
@@ -110,8 +105,7 @@ int SDLTest_Crc32CalcBuffer(SDLTest_Crc32Context *crcContext, CrcUint8 *inBuf, C
  *
 */
 
-int SDLTest_Crc32Done(SDLTest_Crc32Context *crcContext);
-
+int SDLCALL SDLTest_Crc32Done(SDLTest_Crc32Context *crcContext);
 
 /* Ends C function definitions when using C++ */
 #ifdef __cplusplus

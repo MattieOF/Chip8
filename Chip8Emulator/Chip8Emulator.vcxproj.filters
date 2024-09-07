@@ -27,23 +27,27 @@
     <ClInclude Include="Include\Core\Chip8EmulatorLog.h">
       <Filter>Include</Filter>
     </ClInclude>
+    <ClInclude Include="Include\Core\Emulator.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Core\Shell.h">
+      <Filter>Include</Filter>
+    </ClInclude>
     <ClInclude Include="Include\c8pch.h">
       <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="Include\imgui\imgui_impl_sdl3.h">
-      <Filter>Include</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\imgui\imgui_impl_sdlrenderer3.h">
-      <Filter>Include</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Core\Shell.h" />
-    <ClInclude Include="Include\Core\Emulator.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Chip8Emulator.cpp">
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\Core\Chip8EmulatorLog.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\Emulator.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\Shell.cpp">
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\c8pch.cpp">
@@ -58,7 +62,5 @@
     <ClCompile Include="Vendor\PPK_ASSERT\Source\ppk_assert.cpp">
       <Filter>Vendor\PPK_ASSERT\Source</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Core\Shell.cpp" />
-    <ClCompile Include="Source\Core\Emulator.cpp" />
   </ItemGroup>
 </Project>

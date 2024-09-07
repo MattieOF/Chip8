@@ -89,7 +89,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL3-static.lib;version.lib;winmm.lib;Imm32.lib;Cfgmgr32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL3-static.lib;version.lib;winmm.lib;Imm32.lib;Cfgmgr32.lib;Setupapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>Vendor\SDL\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -114,7 +114,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>SDL3-static.lib;version.lib;winmm.lib;Imm32.lib;Cfgmgr32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL3-static.lib;version.lib;winmm.lib;Imm32.lib;Cfgmgr32.lib;Setupapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>Vendor\SDL\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -139,7 +139,7 @@
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>SDL3-static.lib;version.lib;winmm.lib;Imm32.lib;Cfgmgr32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL3-static.lib;version.lib;winmm.lib;Imm32.lib;Cfgmgr32.lib;Setupapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>Vendor\SDL\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -147,20 +147,18 @@
     <ClInclude Include="Include\Chip8Emulator.h" />
     <ClInclude Include="Include\Core\Chip8EmulatorCore.h" />
     <ClInclude Include="Include\Core\Chip8EmulatorLog.h" />
-    <ClInclude Include="Include\c8pch.h" />
     <ClInclude Include="Include\Core\Emulator.h" />
     <ClInclude Include="Include\Core\Shell.h" />
-    <ClInclude Include="Include\imgui\imgui_impl_sdl3.h" />
-    <ClInclude Include="Include\imgui\imgui_impl_sdlrenderer3.h" />
+    <ClInclude Include="Include\c8pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Chip8Emulator.cpp" />
     <ClCompile Include="Source\Core\Chip8EmulatorLog.cpp" />
+    <ClCompile Include="Source\Core\Emulator.cpp" />
+    <ClCompile Include="Source\Core\Shell.cpp" />
     <ClCompile Include="Source\c8pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Source\Core\Emulator.cpp" />
-    <ClCompile Include="Source\Core\Shell.cpp" />
     <ClCompile Include="Source\imgui\imgui_impl_sdl3.cpp" />
     <ClCompile Include="Source\imgui\imgui_impl_sdlrenderer3.cpp" />
     <ClCompile Include="Vendor\PPK_ASSERT\Source\ppk_assert.cpp" />

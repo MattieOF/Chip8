@@ -45,6 +45,30 @@ void Emulator::LoadRomFromBytes(const std::vector<uint8_t>& bytes)
 		Initialise();
 }
 
+bool Emulator::WriteToMemory(const int offset, const void* const data, const size_t size)
+{
+	if (!m_Memory)
+	{
+		C8_ERROR("Memory buffer is null in WriteToMemory");
+		return false;
+	}
+
+	if (offset + size > m_CurrentMemorySize)
+	{
+		C8_ERROR("WriteToMemory: Attempted to write out of bounds: {0} + {1} > {2}", offset, size, m_CurrentMemorySize);
+		return false;
+	}
+
+	memcpy_s(m_Memory + offset, m_CurrentMemorySize - offset, data, size);
+	
+	return true;
+}
+
+void Emulator::FDE()
+{
+	// Fetch, decode, execute!
+}
+
 void Emulator::Initialise()
 {
 	CreateBuffers();
@@ -63,6 +87,7 @@ void Emulator::Initialise()
 	case CompatibilityMode::XOChip11:
 		C8_ERROR("Unimplemented compatibility mode: {0}", static_cast<int>(m_CompatibilityMode));
 		break;
+	case CompatibilityMode::NumModes:
 	default:
 		C8_ERROR("Unknown compatibility mode: {0}", static_cast<int>(m_CompatibilityMode));
 		return;

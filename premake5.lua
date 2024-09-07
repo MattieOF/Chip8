@@ -92,7 +92,8 @@ filter "system:windows"
 		"version",
 		"winmm",
 		"Imm32",
-		"Cfgmgr32"
+		"Cfgmgr32",
+		"Setupapi"
 	}
 
 filter "platforms:Win64"

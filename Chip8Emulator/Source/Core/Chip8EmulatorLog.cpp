@@ -28,6 +28,7 @@ void InitLog(const char* prefPath)
 		sinks.push_back(std::make_shared<spdlog::sinks::basic_file_sink_mt>(path));
 
 		sinks.push_back(std::make_shared<spdlog::sinks::stdout_color_sink_mt>());
+		
 		s_Chip8EmulatorLogger = std::make_shared<spdlog::logger>("Chip-8", std::begin(sinks), std::end(sinks));
 		s_Chip8EmulatorLogger->set_level(spdlog::level::trace);
 	}
